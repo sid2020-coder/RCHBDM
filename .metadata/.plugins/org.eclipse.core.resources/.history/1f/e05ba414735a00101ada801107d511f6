@@ -1,0 +1,10 @@
+package adas;
+
+import org.testng.annotations.Test;
+
+public class Aadas {
+	@Test
+	public void Demo() {
+		System.out.println("testng");
+	}
+}
