@@ -1,0 +1,6 @@
+package testNGsample;
+
+public class TestNg1 {
+
+	System.out.println("TestNg1 demo class");
+}

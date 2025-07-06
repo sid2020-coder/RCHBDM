@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-03T23:04:52 IST" name="Default suite" finished-at="2025-07-03T23:04:52 IST" duration-ms="85">
+    <groups>
+    </groups>
+    <test started-at="2025-07-03T23:04:52 IST" name="Default test" finished-at="2025-07-03T23:04:52 IST" duration-ms="85">
+      <class name="testNGsample.Day5">
+        <test-method signature="demo1()[pri:0, instance:testNGsample.Day5@65c7a252]" started-at="2025-07-03T23:04:52 IST" name="demo1" finished-at="2025-07-03T23:04:52 IST" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demo1 -->
+        <test-method signature="demo1()[pri:0, instance:testNGsample.Day5@65c7a252]" started-at="2025-07-03T23:04:52 IST" name="demo1" finished-at="2025-07-03T23:04:52 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demo1 -->
+        <test-method signature="demo1()[pri:0, instance:testNGsample.Day5@65c7a252]" started-at="2025-07-03T23:04:52 IST" name="demo1" finished-at="2025-07-03T23:04:52 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demo1 -->
+        <test-method signature="Api()[pri:2, instance:testNGsample.Day5@65c7a252]" started-at="2025-07-03T23:04:52 IST" name="Api" finished-at="2025-07-03T23:04:52 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Api -->
+        <test-method signature="web()[pri:3, instance:testNGsample.Day5@65c7a252]" started-at="2025-07-03T23:04:52 IST" name="web" finished-at="2025-07-03T23:04:52 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- web -->
+      </class> <!-- testNGsample.Day5 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,11 @@
+package testNGsample;
+
+import org.testng.ITestListener;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+
+public class Listners implements ITestListener {
+	
+	
+
+}

@@ -1,0 +1,20 @@
+package demo;
+
+import files.PayLoad1;
+import io.restassured.path.json.JsonPath;
+
+public class ComplexJsonParse {
+
+	public static void main(String[] args) {
+		
+		JsonPath js1 = new JsonPath(PayLoad1.coursesPrice());
+		int count =  js1.getInt("courses.size()");
+		System.out.println(count);
+		int totalAmount = js1.getInt("dashboard.purchaseAmount");
+		System.out.println(totalAmount);
+		
+		String firstCourse = js1.get("courses[0].title")
+	}
+	
+	
+}

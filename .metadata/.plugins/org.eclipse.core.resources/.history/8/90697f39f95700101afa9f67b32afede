@@ -1,0 +1,24 @@
+package testNGsample;
+
+
+import org.testng.annotations.Test;
+
+public class Day1 {
+
+
+	
+	@Test
+	public void webLoginCarLoan() {
+		System.out.println("webLoginCarLoan");
+	}
+	
+	@Test
+	public void mobileLoginCarlaon() {
+		System.out.println("mobileLoginCarlaon");
+	}
+	
+	@Test
+	public void apiLoginCarLaon() {
+		System.out.println("apiLoginCarLaon");
+	}
+}

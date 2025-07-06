@@ -1,0 +1,28 @@
+package demo;
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+public class BugTest {
+
+
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import org.testng.Assert;
+
+import files.PayLoad1;	
+
+public class Basics {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		RestAssured.baseURI ="https://rahulshettyacademy.com/";
+
+	
+	
+
+}

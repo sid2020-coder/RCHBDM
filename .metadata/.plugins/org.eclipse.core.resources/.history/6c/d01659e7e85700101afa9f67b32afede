@@ -1,0 +1,9 @@
+package testNGsample;
+
+public class TestNg2 {
+
+
+		System.out.println("Ajsdkd");
+
+
+}

@@ -1,0 +1,52 @@
+package resources;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Properties;
+
+import io.restassured.RestAssured;
+public class Utils {
+	public static RequestSpecification req;
+public RequestSpecification requestSpecification() throws IOException {
+	//if condition will help avoiding setting up global variables for each test iteration and prevents log file overwritting.
+	if(req==null) {
+	// filter logic for request and response logging using requestLoggingFilter and responseLoggingFilter
+	PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
+	
+	//request spec builder logic
+	 req = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
+	.addQueryParam("key", "qaclick123")
+	.addFilter(RequestLoggingFilter.logRequestTo(log))
+	.addFilter(ResponseLoggingFilter.logResponseTo(log))
+	.setContentType(ContentType.JSON).build();
+	return req;
+	}
+	return req;
+}
+
+public static String getGlobalValue(String key) throws IOException {
+	
+	Properties prop = new Properties();
+	FileInputStream fs = new FileInputStream("F:\\sid_TestNg_03_07_2025\\RCHBDM\\APIFrameWork\\src\\test\\java\\resources\\global.properties");
+	prop.load(fs);
+	return prop.getProperty(key);
+
+}
+
+public void getJsonPath(Response res , String key) {
+	String resp = res.asString() ;
+	JsonPath js1 = new JsonPath(resp);
+	js1.get(key)
+}
+
+}

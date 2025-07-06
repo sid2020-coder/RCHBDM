@@ -1,0 +1,20 @@
+package stepDefinitions;
+
+import java.io.IOException;
+
+import io.cucumber.java.Before;
+
+public class Hooks {
+
+@Before("@DeletePlace")
+public void beforeScenario() throws IOException {
+	//logic to give place id and only run this block if place_id == null
+	AddPlaceStepdefinition m = new AddPlaceStepdefinition();
+	if(AddPlaceStepdefinition.place_id==null) {
+	m.add_place_payload("ZzHouse", "Sanskrit", "Badami");
+	m.user_calls_with_http_request("AddPlaceAPI", "POST");
+	m.verify_that_plac_id_created_maps_to_using("ZzHouse", "GetPlaceAPI");
+	}
+}
+	
+}

@@ -1,0 +1,7 @@
+Feature: validating Place APIs
+
+Scenario: Verify that place added using AddPlace API 
+
+Given Add place payload
+When user call
+Then

@@ -1,0 +1,18 @@
+package demo;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import org.testng.Assert;
+
+import files.PayLoad1;	
+
+public class BugTest {
+
+ RestAssured.baseURI ="https://rahulshettyacademy.com/";
+
+	
+	
+
+}

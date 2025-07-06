@@ -1,0 +1,42 @@
+package pojo2;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.*;
+
+import java.util.ArrayList;
+import java.util.List;
+public class Serializartion {
+public static void mainb(String[] args) {
+	AddPlace addPlaceobj = new AddPlace();
+	addPlaceobj.setAccuracy(50);
+	addPlaceobj.setAddress("pune MH");
+	addPlaceobj.setLanguage("marathi");
+	addPlaceobj.setName("20th floor");
+	addPlaceobj.setPhone_number("4531684596");
+	addPlaceobj.setWebsite("https://rahulshettyacademy.com");
+	List<String> s1 = new ArrayList();
+	s1.add("shoe park");
+	s1.add("amit k");
+	addPlaceobj.setTypes(s1);
+	
+	Locations l = new Locations();
+	l.setLat(25.352);
+	l.setLng(794.26355);
+	
+	RestAssured.baseURI = "https://rahulshettyacademy.com";
+	Response response =
+	given()
+	.queryParam("key", "qaclick123")
+	.body(addPlaceobj)
+	.when()
+	.post("/maps/api/place/add/json")
+	.then().assertThat().statusCode(200).extract().response();
+	
+	String responseString = response.asString();
+	System.out.println(responseString);
+	
+	
+}
+	
+}

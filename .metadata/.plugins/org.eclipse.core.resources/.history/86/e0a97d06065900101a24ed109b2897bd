@@ -1,0 +1,11 @@
+package demo;
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+public class BugTest {
+
+	
+	RestAssured
+	
+}

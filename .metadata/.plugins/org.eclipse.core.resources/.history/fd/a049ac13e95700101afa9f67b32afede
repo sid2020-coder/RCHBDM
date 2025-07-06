@@ -1,0 +1,10 @@
+package testNGsample;
+
+public class TestNg1 {
+
+	
+public void demo() {
+		
+		System.out.println("TestNg1");
+	}
+}

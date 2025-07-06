@@ -1,0 +1,8 @@
+package pojo2;
+
+public class Locations {
+
+
+	private double lat;
+	private double lng;
+}

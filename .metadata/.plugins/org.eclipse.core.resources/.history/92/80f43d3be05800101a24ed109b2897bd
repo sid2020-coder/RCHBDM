@@ -1,0 +1,19 @@
+package demo;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import static org.hamcrest.Matchers.*;
+public class DynamicJson {
+
+@Test
+public  void addBook() {
+	RestAssured.baseURI = "http://216.10.245.166";
+	
+	
+	
+	
+	
+}
+	
+}

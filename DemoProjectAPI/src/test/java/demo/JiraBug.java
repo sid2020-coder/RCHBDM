@@ -1,0 +1,29 @@
+package demo;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+import static io.restassured.RestAssured.*;
+
+import files.PayLoad1;
+
+public class JiraBug {
+
+	public static void main(String[] args) {
+		
+		RestAssured.baseURI = "https://skykite20.atlassian.net/";
+		String createIssue =
+		 given()
+		.header("Content-Type","application/json")
+		.header("Authorization","Basic c2t5a2l0ZTIwQGdtYWlsLmNvbTpBVEFUVDN4RmZHRjBHdGdFTE5rNDJEdUI1bzJrQ19lbzlNZm1OcUZ0Uy1mMG5ndXQ4bjRmUGVZTXowN08wZm56dXdEVWEwS3cxX1kzMzVIaWpfVlpJWDlLZ0gyWEdVaC1ESGYzREY1ZlZFWjhKWFZkUTlOQzM5dFBaRWpjcnk1ZFM0cnhXZldCeXJUbVZVZFVzcW1vY0Y1TU9TNlhmNFd1aUNTbkpRQXFTcVhfLWprTEQzUWZsUUk9MUFEOTczRDE=")
+		.body(PayLoad1.issueJiraPayload())
+		.log().all()
+		.when()
+		.post("rest/api/3/issue")
+		.then().log().all().assertThat().statusCode(201).extract().response().asString();
+		
+		JsonPath js1 = new JsonPath(createIssue);
+		System.out.println(js1.getString("id"));
+		
+	}
+}

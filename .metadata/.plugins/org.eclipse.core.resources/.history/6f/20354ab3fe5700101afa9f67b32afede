@@ -1,0 +1,46 @@
+package testNGsample;
+
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Day3 {
+	
+	@BeforeTest
+	public void beforeTestExecute() {
+		System.out.println("Before every Test");
+	}
+	
+	@AfterTest
+	public void afterTestExecyte() {
+		System.out.println("After every test");
+	}
+
+	@AfterSuite
+	public void afterSuite() {
+		System.out.println("afterSuite");
+	}
+	
+	@BeforeClass
+	public void beforeClasstest() {
+		System.out.println("beforeClassSuite");
+	}
+	
+	@Test
+	public void webLoginCardLoan() {
+		System.out.println("webLoginCardLoan");
+	}
+	
+	@Test
+	public void mobileLoginCardlaon() {
+		System.out.println("mobileLoginCardlaon");
+	}
+	
+	@Test
+	public void apiLoginCardLaon() {
+		System.out.println("apiLoginCardLaon");
+	}
+
+}

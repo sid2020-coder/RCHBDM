@@ -1,0 +1,104 @@
+package stepDefinitions;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import static org.junit.Assert.*;
+import static io.restassured.RestAssured.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import pojo.AddPlace;
+import pojo.Locations;
+import resources.APIResources;
+import resources.TestDataBuild;
+import resources.Utils;
+
+public class AddPlaceStepdefinition extends Utils {
+	RequestSpecification request;
+	ResponseSpecification responseSpec;
+	 Response res;
+	 TestDataBuild data = new TestDataBuild();
+
+	 @Given("Add place payload {string} {string} {string}")
+	 public void add_place_payload(String name, String language, String address) throws IOException {	
+
+		
+		 
+		request =
+		given().log().all().spec(requestSpecification())
+		.body(data.addPlacePayload(name,language,address));
+		
+		
+	}
+	
+	
+	 @When("user calls {string} with {string} HTTP request")
+	 public void user_calls_with_http_request(String resource, String httpMethod) {
+	
+		//object of Global resource file
+		 APIResources resourceApi =  APIResources.valueOf(resource);
+				 
+		// response spec builder logic 
+		 responseSpec = new ResponseSpecBuilder()
+		.expectStatusCode(200)
+	    .expectContentType(ContentType.JSON).build();
+		
+		 if (httpMethod.equalsIgnoreCase("POST")) {
+		 res = request.when()
+					.post(resourceApi.getGoblaResources())
+					.then().spec(responseSpec).extract().response();
+		}else if(httpMethod.equalsIgnoreCase("GET")) {
+			 res = request.when()
+						.get(resourceApi.getGoblaResources())
+						.then().spec(responseSpec).extract().response();
+		}
+	}
+	
+	
+	@Then("the API call got success with status code {int}")
+	public void the_api_call_got_success_with_status_code(int int1) {
+		assertEquals(res.getStatusCode(), int1);	
+		
+	}
+	
+	@Then("{string} in response body is {string}")
+	public void in_response_body_is(String keyvalue, String expectedValue) {
+		
+		assertEquals(getJsonPath(res,keyvalue), expectedValue);
+		
+	}
+	
+	@Then("verify that plac_id created maps to {string} using {string}")
+	public void verify_that_plac_id_created_maps_to_using(String expectedName, String resource) throws IOException {
+		//request spec
+		String place_id= getJsonPath(res,"place_id");
+		request =given().log().all().spec(requestSpecification()).queryParam("place_id", place_id);
+		user_calls_with_http_request(resource, "GET");
+		String actualName = getJsonPath(res,"name");
+		
+		assertEquals(actualName, expectedName);
+		
+	}
+	
+
+}

@@ -1,0 +1,10 @@
+package oauthAPI;
+import static io.restassured.RestAssured.given;
+public class ApiOAuth {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

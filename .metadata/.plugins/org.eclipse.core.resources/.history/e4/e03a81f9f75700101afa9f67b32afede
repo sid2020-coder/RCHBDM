@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="CarLoan">
+    <classes>
+      <class name="testNGsample.Day1">
+      <methods>
+		  <include name="webLoginCarLoan"></include>
+	  </methods>
+      </class>
+      
+      <class name="testNGsample.Day1">
+      <methods>
+		  <include name="webLoginCarLoan"></include>
+	  </methods>
+      </class>
+      
+    </classes>
+  </test>
+  
+   <test thread-count="5" name="HomeLoan">
+    <classes>
+      <class name="testNGsample.Day2">
+		  <methods>
+			  <exclude name="mobileLoginHomelaon"></exclude>
+		  </methods>
+      </class>
+    </classes>
+  </test>
+</suite> <!-- Suite -->

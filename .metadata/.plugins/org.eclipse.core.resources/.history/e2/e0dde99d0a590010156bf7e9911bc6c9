@@ -1,0 +1,14 @@
+package demo;
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+public class JiraBug {
+
+	public static void main(String[] args) {
+		
+		RestAssured.baseURI = "https://skykite20.atlassian.net";
+		
+		
+	}
+}

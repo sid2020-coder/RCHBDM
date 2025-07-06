@@ -1,0 +1,14 @@
+package pojo2;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+public class Serializartion {
+public static void mainb(String[] args) {
+	
+	given()
+	.queryParam("key", "qaclick123")
+	.when()
+	.post("/maps/api/place/add/json")
+	
+}
+	
+}

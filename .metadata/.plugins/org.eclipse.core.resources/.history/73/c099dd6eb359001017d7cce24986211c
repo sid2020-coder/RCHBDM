@@ -1,0 +1,27 @@
+package resources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestDataBuild {
+
+	public void addPlacePayload() {
+		pojo.AddPlace addPlaceobj = new pojo.AddPlace();
+		addPlaceobj.setAccuracy(50);
+		addPlaceobj.setAddress("pune MH");
+		addPlaceobj.setLanguage("marathi");
+		addPlaceobj.setName("20th floor");
+		addPlaceobj.setPhone_number("4531684596");
+		addPlaceobj.setWebsite("https://rahulshettyacademy.com");
+		
+		List<String> s1 = new ArrayList<String>();
+		s1.add("shoe park");
+		s1.add("amit k");
+		addPlaceobj.setTypes(s1);
+		
+		pojo.Locations l = new pojo.Locations();
+		l.setLat(25.352);
+		l.setLng(794.26355);
+		addPlaceobj.setLocation(l);
+	}
+}

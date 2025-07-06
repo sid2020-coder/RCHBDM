@@ -1,0 +1,36 @@
+package pojo2;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+import org.apache.groovy.parser.antlr4.GroovyParser.ClassNameContext;
+public class EcommerceAPITest {
+
+	public static void main(String[] args) {
+		
+		//login 
+		LoginRequest login = new LoginRequest();
+		login.setUserEmail("restapi@gamil.com");
+		login.setUserPassword("Pune@123");
+	RequestSpecification	givenReq= new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").setContentType(ContentType.JSON).build();
+						
+	
+	RequestSpecification reqLogin =  given().log().all().spec(givenReq).body(login);
+	LoginrRsponse loginResponse  = reqLogin.when().log().all().post("/api/ecom/auth/login").then().extract().response().as(LoginrRsponse.class);
+	
+	
+	System.out.println(loginResponse.getUserId());
+	System.out.println(loginResponse.getToken());
+		
+		//create product
+	RequestSpecification	addProductReq= new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").setContentType(ContentType.JSON).build();
+	
+	
+	
+	
+	
+	}
+}

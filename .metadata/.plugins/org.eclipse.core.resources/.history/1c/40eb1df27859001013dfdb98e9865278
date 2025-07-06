@@ -1,0 +1,60 @@
+package pojo2;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+
+import static io.restassured.RestAssured.*;
+
+import java.util.ArrayList;
+import java.util.List;
+public class SpecBuilderTest {
+public static void main(String[] args) {
+	
+	//add place
+	AddPlace addPlaceobj = new AddPlace();
+	addPlaceobj.setAccuracy(50);
+	addPlaceobj.setAddress("pune MH");
+	addPlaceobj.setLanguage("marathi");
+	addPlaceobj.setName("20th floor");
+	addPlaceobj.setPhone_number("4531684596");
+	addPlaceobj.setWebsite("https://rahulshettyacademy.com");
+	
+	List<String> s1 = new ArrayList();
+	s1.add("shoe park");
+	s1.add("amit k");
+	addPlaceobj.setTypes(s1);
+	
+	Locations l = new Locations();
+	l.setLat(25.352);
+	l.setLng(794.26355);
+	addPlaceobj.setLocation(l);
+	
+	//request spec builder logic
+	RequestSpecification req = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+	.addQueryParam("key", "qaclick123")
+	.setContentType(ContentType.JSON).build();
+	// response spec builder
+	ResponseSpecification responseSpec = new ResponseSpecBuilder()
+	.expectStatusCode(200)
+    .expectContentType(ContentType.JSON).build();
+	
+	RequestSpecification request =
+	given().log().all().spec(req)
+	.body(addPlaceobj);
+	
+	
+	 Response res = request.when()
+	.post("/maps/api/place/add/json")
+	.then().spec(responseSpec).extract().response();
+	
+	String responseString = res.asString();
+	System.out.println(responseString);
+	
+	
+}
+	
+}

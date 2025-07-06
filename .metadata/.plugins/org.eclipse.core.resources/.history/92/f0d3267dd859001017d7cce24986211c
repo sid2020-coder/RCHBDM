@@ -1,0 +1,36 @@
+package resources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pojo.AddPlace;
+
+public class TestDataBuild {
+
+	public AddPlace addPlacePayload(String name,String language,String address) {
+		pojo.AddPlace addPlaceobj = new pojo.AddPlace();
+		addPlaceobj.setAccuracy(50);
+		addPlaceobj.setAddress(address);
+		addPlaceobj.setLanguage(language);
+		addPlaceobj.setName(name);
+		addPlaceobj.setPhone_number("4531684596");
+		addPlaceobj.setWebsite("https://rahulshettyacademy.com");
+		
+		List<String> s1 = new ArrayList<String>();
+		s1.add("shoe park");
+		s1.add("amit k");
+		addPlaceobj.setTypes(s1);
+		
+		pojo.Locations l = new pojo.Locations();
+		l.setLat(25.352);
+		l.setLng(794.26355);
+		addPlaceobj.setLocation(l);
+		return addPlaceobj;
+	}
+	
+	public String deletePlacePayload(String place_id) {
+		return "{\r\n"
+				+ "    \"place_id\":\"928b51f64aed18713b0d164d9be8d67f\"\r\n"
+				+ "}";
+	}
+}

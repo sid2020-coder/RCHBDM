@@ -1,0 +1,11 @@
+package pojo;
+
+public class PojoDemo {
+
+	private String instructor;
+	private String url;
+	private String services;
+	private String expertise;
+	private String courses;
+	private String linkedIn;
+}

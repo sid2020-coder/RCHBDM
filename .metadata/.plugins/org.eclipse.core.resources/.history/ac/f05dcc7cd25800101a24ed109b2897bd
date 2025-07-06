@@ -1,0 +1,20 @@
+package demo;
+
+import org.testng.annotations.Test;
+
+import files.PayLoad1;
+import io.restassured.path.json.JsonPath;
+
+public class SumValidadtion {
+
+
+  @Test
+  public void sumofCourses() {
+	  JsonPath js1 = new JsonPath(PayLoad1.coursesPrice());
+		int count =  js1.getInt("courses.size()");
+		
+		for(int i=0;i<count;i++) {
+			
+		}
+  }
+}

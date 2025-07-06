@@ -1,0 +1,19 @@
+package testNGsample;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class Day5 {
+
+	//@Test(dependsOnMethods = "demo1")
+	@Test
+	public void web() {
+		System.out.println("demo");
+	}
+	
+	@Test()
+	public void demo1() {
+		System.out.println("demo1");
+	//	Assert.assertTrue(false);
+	}
+}

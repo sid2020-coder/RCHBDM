@@ -1,0 +1,21 @@
+package testNGsample;
+
+import org.testng.annotations.Test;
+
+public class Day3 {
+	@Test
+	public void webLoginCardLoan() {
+		System.out.println("webLoginCardLoan");
+	}
+	
+	@Test
+	public void mobileLoginCardlaon() {
+		System.out.println("mobileLoginCardlaon");
+	}
+	
+	@Test
+	public void apiLoginCardLaon() {
+		System.out.println("apiLoginCardLaon");
+	}
+
+}

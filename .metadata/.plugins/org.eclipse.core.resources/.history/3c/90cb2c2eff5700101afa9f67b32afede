@@ -1,0 +1,44 @@
+package testNGsample;
+
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Day1 {
+
+	@BeforeSuite
+	public void befoeSuite() {
+		System.out.println("beforeSuite");
+	}
+	
+
+	
+	@BeforeClass
+	public void beforeClasstest() {
+		System.out.println("beforeClassSuite");
+	}
+	
+	@AfterClass
+	public void afeterclassTest() {
+		System.out.println("afeterclassTest");
+	}
+	@Parameters({"URL"})
+	@Test(groups={"smoke"})
+	public void webLoginCarLoan(String URL) {
+		System.out.println("webLoginCarLoan");
+	}
+	
+	@Test
+	public void mobileLoginCarlaon() {
+		System.out.println("mobileLoginCarlaon");
+	}
+	
+	@Test
+	public void apiLoginCarLaon() {
+		System.out.println("apiLoginCarLaon");
+	}
+}
