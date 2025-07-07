@@ -45,6 +45,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="onlineStoreFakeAPI"/>
 			<item value="bdd"/>
 			<item value="com.rchabc"/>
 			<item value="schbdm"/>
@@ -52,6 +53,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="onlineStoreFakeAPI"/>
 			<item value="APIFrameWork"/>
 			<item value="oauthAPI"/>
 			<item value="DemoProjectAPI"/>
